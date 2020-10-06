@@ -84,11 +84,11 @@ namespace {symbol.ContainingNamespace.ToDisplayString()}
                 }
 
                 s.AppendLine($@"
-        public {symbol.Name}({fromType.ToDisplayString()} __model)
+        public {symbol.Name}({fromType.ToDisplayString()} model)
         {{");
                 foreach (var prop in properties)
                 {
-                    s.AppendLine($@"this.{prop.Name} = Reactive.Bindings.ReactiveProperty.FromObject(__model, x => x.{prop.Name})
+                    s.AppendLine($@"this.{prop.Name} = Reactive.Bindings.ReactiveProperty.FromObject(model, x => x.{prop.Name})
                         .AddTo(Disposables);");
                 }
 
