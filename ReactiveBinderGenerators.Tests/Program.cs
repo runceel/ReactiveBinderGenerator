@@ -1,4 +1,5 @@
 ﻿using System;
+using ReactiveBinderGenerators;
 
 namespace ReactiveBinderGenerators.Tests
 {
@@ -6,7 +7,11 @@ namespace ReactiveBinderGenerators.Tests
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var p = new Person { Name = "Kazuki" };
+            var vm = new PersonViewModel(p);
+            Console.WriteLine(vm.Name.Value);
+            vm.Name.Value = "Ota";
+            Console.WriteLine(p.Name);
         }
     }
 
@@ -16,7 +21,7 @@ namespace ReactiveBinderGenerators.Tests
     }
 
     [BindFrom(typeof(Person))]
-    public class PersonViewModel
+    public partial class PersonViewModel
     {
 
     }
