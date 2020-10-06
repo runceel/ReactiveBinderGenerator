@@ -76,7 +76,7 @@ namespace {symbol.ContainingNamespace.ToDisplayString()}
 {{
     public partial class {symbol.Name} : System.IDisposable
     {{
-        protected System.Reactive.Disposables.CompositeDisposable Disposables {{ get; }} = new System.Reactive.Disposables.CompositeDisposable();");
+        private System.Reactive.Disposables.CompositeDisposable Disposables {{ get; }} = new System.Reactive.Disposables.CompositeDisposable();");
 
                 foreach (var prop in properties)
                 {
